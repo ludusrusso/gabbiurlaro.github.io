@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-Queste sono alcuen informazioni su di me!
+Queste sono alcune informazioni su di me!
 
 ### Informazioni di base
 
