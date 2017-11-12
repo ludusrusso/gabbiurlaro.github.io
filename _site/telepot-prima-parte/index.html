@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Conosciamo le API di telegram usando python – gabbiurlaro.github.io – Developer from Salento</title>
+
+        <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="Telegram è un app di messagistica istantanea simile a whatsapp, ad alcuni tratti migliore, ma non voglio perdermi in inutili discorsi. La differenza sostanziale è che Telegram permette di chattare con dei bot.
+
+" />
+    <meta property="og:description" content="Telegram è un app di messagistica istantanea simile a whatsapp, ad alcuni tratti migliore, ma non voglio perdermi in inutili discorsi. La differenza sostanziale è che Telegram permette di chattare con dei bot.
+
+" />
+    
+    <meta name="author" content="gabbiurlaro.github.io" />
+
+    
+    <meta property="og:title" content="Conosciamo le API di telegram usando python" />
+    <meta property="twitter:title" content="Conosciamo le API di telegram usando python" />
+    
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="gabbiurlaro.github.io - Developer from Salento" href="/feed.xml" />
+
+    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+
+  <body>
+    <div class="wrapper-masthead">
+      <div class="container">
+        <header class="masthead clearfix">
+          <a href="/" class="site-avatar"><img src="" /></a>
+
+          <div class="site-info">
+            <h1 class="site-name"><a href="/">gabbiurlaro.github.io</a></h1>
+            <p class="site-description">Developer from Salento</p>
+          </div>
+
+          <nav>
+            <a href="/blog">Blog</a>
+            <a href="/about">About</a>
+          </nav>
+        </header>
+      </div>
+    </div>
+
+    <div id="main" role="main" class="container">
+      <article class="post">
+  <h1>Conosciamo le API di telegram usando python</h1>
+
+  <div class="date">
+    November 12, 2017
+  </div>
+
+  <div class="entry">
+    <p><strong>Telegram</strong> è un app di messagistica istantanea simile a whatsapp, ad alcuni tratti migliore, ma non voglio perdermi in inutili discorsi. La differenza sostanziale è che Telegram permette di chattare con dei <strong>bot</strong>.</p>
+
+<h2 id="cosa-è-un-bot">Cosa è un bot?</h2>
+
+<p>Un bot è una chat con un servizio pre-programmato, che risponde in maniera diversa a seconda del testo che gli mandi. Detto così può sembrare inutile, ma ci sono bot che si connettono a dei servizi online, come la mappa dei defribillatori, oppure bot che permettono di effettuare dei pagamenti.</p>
+
+<h2 id="come-si-crea-un-bot">Come si crea un bot?</h2>
+
+<p>Per creare un bot, bisogna usare un altro bot. Digitiamo nel campo di ricerca <strong>@botfather</strong> e clicchiamo su avvia.</p>
+
+<p>Ora digitiamo il comando <code class="highlighter-rouge">/newbot</code> e seguiamo le indicazioni del bot. Al termine ci darà un codice, detto TOKEN, che ci da l’accesso alle API di Telegram. Conserva quel codice per dopo.</p>
+
+<h2 id="la-libreria-telepot">La libreria Telepot</h2>
+
+<p>Prima di passare alla vera e propria programmazione del nostro bot telegram, proviamo alcune funzioni della libreria <strong>telepot</strong> con le API di Telegram.\Avete conservato il vostro TOKEN? Ora ci servirà!</p>
+
+<p>Prima di tutto installiamo pip, se non lo avete già scaricato. Apriamo una pagina nel terminale e digitiamo:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~<span class="nv">$ </span><span class="nb">sudo </span>apt install python-pip
+</code></pre></div></div>
+
+<p>Ora installiamo la libreria telepot:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~<span class="nv">$ </span>pip install telepot
+</code></pre></div></div>
+
+<p>Siamo finalmente pronti a far funzionare il nostro primo bot. Nel nostro terminale digitiamo il comando <code class="highlighter-rouge">python</code>, che restituirà la seguente schermata:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~<span class="nv">$ </span>python
+Python 2.7.12 <span class="o">(</span>default, Nov 19 2016, 06:48:10<span class="o">)</span>
+<span class="o">[</span>GCC 5.4.0 20160609] on linux2
+Type <span class="s2">"help"</span>, <span class="s2">"copyright"</span>, <span class="s2">"credits"</span> or <span class="s2">"license"</span> <span class="k">for </span>more information.
+<span class="o">&gt;&gt;&gt;</span>
+</code></pre></div></div>
+<p>La prima api che vedremo, verificherà che il nostro bot è funzionante. Si chiama <code class="highlighter-rouge">getMe()</code>. Nell’interprete python scriviamo:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">telepot</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">bot</span> <span class="o">=</span> <span class="n">telepot</span><span class="o">.</span><span class="n">Bot</span><span class="p">(</span><span class="s">'TOKEN'</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">bot</span><span class="o">.</span><span class="n">getMe</span><span class="p">()</span>
+<span class="p">{</span><span class="s">u'first_name'</span><span class="p">:</span> <span class="s">u'NOME_DEL_BOT'</span><span class="p">,</span> <span class="s">u'id'</span><span class="p">:</span> <span class="n">BOT_ID</span><span class="p">,</span> <span class="s">u'username'</span><span class="p">:</span> <span class="s">u'USERNAME_DEL_BOT'</span><span class="p">}</span>
+</code></pre></div></div>
+<p>Che restituirà un JSON contenente le informazioni sul bot. Miraccomando! Sotituite TOKEN con il  vostro token!\ Sappiamo ora come la funzione getMe() ritorni le informazioni sul bot. MA coem fa il bot a ricevere  nostri messaggi? Per questo ci viene incontro l’altra API che vedremo, <code class="highlighter-rouge">getUpdates()</code>. Vediamone il funzionamento:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">resp</span> <span class="o">=</span> <span class="n">bot</span><span class="o">.</span><span class="n">getUpdates</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">pprint</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span>
+<span class="p">[{</span><span class="s">u'message'</span><span class="p">:</span> <span class="p">{</span><span class="s">u'chat'</span><span class="p">:</span> <span class="p">{</span><span class="s">u'first_name'</span><span class="p">:</span> <span class="s">u'NOME_UTENTE'</span><span class="p">,</span>
+                         <span class="s">u'id'</span><span class="p">:</span> <span class="n">ID_UTENTE</span><span class="p">,</span>
+                         <span class="s">u'last_name'</span><span class="p">:</span> <span class="s">u'COGNOME_UTENTE'</span><span class="p">,</span>
+                         <span class="s">u'type'</span><span class="p">:</span> <span class="s">u'private'</span><span class="p">},</span>
+               <span class="s">u'date'</span><span class="p">:</span> <span class="mi">8309039848</span><span class="p">,</span>
+               <span class="s">u'from'</span><span class="p">:</span> <span class="p">{</span><span class="s">u'first_name'</span><span class="p">:</span> <span class="s">u'NOME_UTENTE'</span><span class="p">,</span>
+                         <span class="s">u'id'</span><span class="p">:</span> <span class="n">ID_UTENTE</span><span class="p">,</span>
+                         <span class="s">u'last_name'</span><span class="p">:</span> <span class="s">u'COGNOME_UTENTE'</span><span class="p">},</span>
+               <span class="s">u'message_id'</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span>
+               <span class="s">u'text'</span><span class="p">:</span> <span class="s">u'TESTO_MESSAGGIO'</span><span class="p">},</span>
+  <span class="s">u'update_id'</span><span class="p">:</span> <span class="n">NUM_MESS</span><span class="p">}]</span>
+</code></pre></div></div>
+
+<p>Analizziamo il seguente codice:<br />
+La funzione pprint, stampa semplicemente in maniera leggibile il JSON del getUpdates. Creiamo una variabile di nome resp, e dentro ci mettiamo il contenuto della richiesta <code class="highlighter-rouge">getUpdates()</code>, e infine la stampiamo. Semplice no? Dentro il messaggio, notiamo diverse informazioni, che dovremo tenere a mente quando andremo a sviluppare il nostro bot. il più importante è l’<code class="highlighter-rouge">id</code>, che identifica la chat tra l’utente e il bot.
+<br />
+<br />
+Vi è piaciuto questo post? Avete qualcosa da suggerirmi? Commentate qui sotto! A presto con la continuazione del tutorial!</p>
+
+  </div>
+
+  
+<div class="comments">
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+
+	    var disqus_shortname = 'https-gabbiurlaro-github-io';
+
+	    (function() {
+	        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	    })();
+
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+</article>
+
+    </div>
+
+    <div class="wrapper-footer">
+      <div class="container">
+        <footer class="footer">
+          
+<a href="mailto:gabbiurlaro00@gmail.com"><i class="svg-icon email"></i></a>
+
+
+<a href="https://github.com/gabbiurlaro"><i class="svg-icon github"></i></a>
+<a href="https://instagram.com/ilfunkytarro"><i class="svg-icon instagram"></i></a>
+
+
+<a href="/feed.xml"><i class="svg-icon rss"></i></a>
+<a href="https://www.twitter.com/gabbiurlaro"><i class="svg-icon twitter"></i></a>
+
+
+
+        </footer>
+      </div>
+    </div>
+
+    
+
+  </body>
+</html>

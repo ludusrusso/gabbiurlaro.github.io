@@ -3,10 +3,80 @@
 <generator uri="http://jekyllrb.com" version="3.6.2">Jekyll</generator>
 <link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" />
 <link href="http://localhost:4000/" rel="alternate" type="text/html" />
-<updated>2017-11-12T17:54:05+01:00</updated>
+<updated>2017-11-12T18:51:28+01:00</updated>
 <id>http://localhost:4000/</id>
 <title>gabbiurlaro.github.io</title>
 <subtitle>Developer from Salento</subtitle>
+<entry>
+<title>Conosciamo le API di telegram usando python</title>
+<link href="http://localhost:4000/telepot-prima-parte/" rel="alternate" type="text/html" title="Conosciamo le API di telegram usando python" />
+<published>2017-11-12T00:00:00+01:00</published>
+<updated>2017-11-12T00:00:00+01:00</updated>
+<id>http://localhost:4000/telepot-prima-parte</id>
+<content type="html" xml:base="http://localhost:4000/telepot-prima-parte/">&lt;p&gt;&lt;strong&gt;Telegram&lt;/strong&gt; è un app di messagistica istantanea simile a whatsapp, ad alcuni tratti migliore, ma non voglio perdermi in inutili discorsi. La differenza sostanziale è che Telegram permette di chattare con dei &lt;strong&gt;bot&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;cosa-è-un-bot&quot;&gt;Cosa è un bot?&lt;/h2&gt;
+
+&lt;p&gt;Un bot è una chat con un servizio pre-programmato, che risponde in maniera diversa a seconda del testo che gli mandi. Detto così può sembrare inutile, ma ci sono bot che si connettono a dei servizi online, come la mappa dei defribillatori, oppure bot che permettono di effettuare dei pagamenti.&lt;/p&gt;
+
+&lt;h2 id=&quot;come-si-crea-un-bot&quot;&gt;Come si crea un bot?&lt;/h2&gt;
+
+&lt;p&gt;Per creare un bot, bisogna usare un altro bot. Digitiamo nel campo di ricerca &lt;strong&gt;@botfather&lt;/strong&gt; e clicchiamo su avvia.&lt;/p&gt;
+
+&lt;p&gt;Ora digitiamo il comando &lt;code class=&quot;highlighter-rouge&quot;&gt;/newbot&lt;/code&gt; e seguiamo le indicazioni del bot. Al termine ci darà un codice, detto TOKEN, che ci da l’accesso alle API di Telegram. Conserva quel codice per dopo.&lt;/p&gt;
+
+&lt;h2 id=&quot;la-libreria-telepot&quot;&gt;La libreria Telepot&lt;/h2&gt;
+
+&lt;p&gt;Prima di passare alla vera e propria programmazione del nostro bot telegram, proviamo alcune funzioni della libreria &lt;strong&gt;telepot&lt;/strong&gt; con le API di Telegram.\Avete conservato il vostro TOKEN? Ora ci servirà!&lt;/p&gt;
+
+&lt;p&gt;Prima di tutto installiamo pip, se non lo avete già scaricato. Apriamo una pagina nel terminale e digitiamo:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt install python-pip
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Ora installiamo la libreria telepot:&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;pip install telepot
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Siamo finalmente pronti a far funzionare il nostro primo bot. Nel nostro terminale digitiamo il comando &lt;code class=&quot;highlighter-rouge&quot;&gt;python&lt;/code&gt;, che restituirà la seguente schermata:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;python
+Python 2.7.12 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;default, Nov 19 2016, 06:48:10&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;GCC 5.4.0 20160609] on linux2
+Type &lt;span class=&quot;s2&quot;&gt;&quot;help&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;copyright&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;credits&quot;&lt;/span&gt; or &lt;span class=&quot;s2&quot;&gt;&quot;license&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;more information.
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;La prima api che vedremo, verificherà che il nostro bot è funzionante. Si chiama &lt;code class=&quot;highlighter-rouge&quot;&gt;getMe()&lt;/code&gt;. Nell’interprete python scriviamo:&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;telepot&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bot&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;telepot&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Bot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'TOKEN'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bot&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getMe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;u'first_name'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;u'NOME_DEL_BOT'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;u'id'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BOT_ID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;u'username'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;u'USERNAME_DEL_BOT'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Che restituirà un JSON contenente le informazioni sul bot. Miraccomando! Sotituite TOKEN con il  vostro token!\ Sappiamo ora come la funzione getMe() ritorni le informazioni sul bot. MA coem fa il bot a ricevere  nostri messaggi? Per questo ci viene incontro l’altra API che vedremo, &lt;code class=&quot;highlighter-rouge&quot;&gt;getUpdates()&lt;/code&gt;. Vediamone il funzionamento:&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;pprint&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pprint&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bot&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getUpdates&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pprint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;resp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;u'message'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;u'chat'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;u'first_name'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;u'NOME_UTENTE'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                         &lt;span class=&quot;s&quot;&gt;u'id'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ID_UTENTE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                         &lt;span class=&quot;s&quot;&gt;u'last_name'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;u'COGNOME_UTENTE'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                         &lt;span class=&quot;s&quot;&gt;u'type'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;u'private'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+               &lt;span class=&quot;s&quot;&gt;u'date'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8309039848&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+               &lt;span class=&quot;s&quot;&gt;u'from'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;u'first_name'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;u'NOME_UTENTE'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                         &lt;span class=&quot;s&quot;&gt;u'id'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ID_UTENTE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                         &lt;span class=&quot;s&quot;&gt;u'last_name'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;u'COGNOME_UTENTE'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+               &lt;span class=&quot;s&quot;&gt;u'message_id'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;13&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+               &lt;span class=&quot;s&quot;&gt;u'text'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;u'TESTO_MESSAGGIO'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;u'update_id'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;NUM_MESS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Analizziamo il seguente codice:&lt;br /&gt;
+La funzione pprint, stampa semplicemente in maniera leggibile il JSON del getUpdates. Creiamo una variabile di nome resp, e dentro ci mettiamo il contenuto della richiesta &lt;code class=&quot;highlighter-rouge&quot;&gt;getUpdates()&lt;/code&gt;, e infine la stampiamo. Semplice no? Dentro il messaggio, notiamo diverse informazioni, che dovremo tenere a mente quando andremo a sviluppare il nostro bot. il più importante è l’&lt;code class=&quot;highlighter-rouge&quot;&gt;id&lt;/code&gt;, che identifica la chat tra l’utente e il bot.
+&lt;br /&gt;
+&lt;br /&gt;
+Vi è piaciuto questo post? Avete qualcosa da suggerirmi? Commentate qui sotto! A presto con la continuazione del tutorial!&lt;/p&gt;
+</content>
+<summary>Telegram è un app di messagistica istantanea simile a whatsapp, ad alcuni tratti migliore, ma non voglio perdermi in inutili discorsi. La differenza sostanziale è che Telegram permette di chattare con dei bot.</summary>
+</entry>
 <entry>
 <title>Primo post sul sito</title>
 <link href="http://localhost:4000/Primo-post/" rel="alternate" type="text/html" title="Primo post sul sito" />
@@ -16,15 +86,5 @@
 <content type="html" xml:base="http://localhost:4000/Primo-post/">&lt;p&gt;Ciao, sono Gabriele Iurlaro, e questo è il mio blog. Da qualche anno mi occupo di sviluppo web, usando diversi linguaggi di programmazione. Il mio preferito è il &lt;strong&gt;python&lt;/strong&gt;. Oltre a sviluppare per il web, mi piace molto il mondo dei maker, di cui faccio parte. Inoltre, sono un &lt;strong&gt;Roker&lt;/strong&gt;(&lt;strong&gt;Ro&lt;/strong&gt;bot Ma&lt;strong&gt;ker&lt;/strong&gt;). A presto per il primo articolo sul blog!&lt;/p&gt;
 </content>
 <summary>Ciao, sono Gabriele Iurlaro, e questo è il mio blog. Da qualche anno mi occupo di sviluppo web, usando diversi linguaggi di programmazione. Il mio preferito è il python. Oltre a sviluppare per il web, mi piace molto il mondo dei maker, di cui faccio parte. Inoltre, sono un Roker(Robot Maker). A presto per il primo articolo sul blog!</summary>
-</entry>
-<entry>
-<title>Implementiamo un blog con Jekyll</title>
-<link href="http://localhost:4000/Jekyll-prima-parte/" rel="alternate" type="text/html" title="Implementiamo un blog con Jekyll" />
-<published>2017-11-12T00:00:00+01:00</published>
-<updated>2017-11-12T00:00:00+01:00</updated>
-<id>http://localhost:4000/Jekyll-prima-parte</id>
-<content type="html" xml:base="http://localhost:4000/Jekyll-prima-parte/">
-</content>
-<summary></summary>
 </entry>
 </feed>
