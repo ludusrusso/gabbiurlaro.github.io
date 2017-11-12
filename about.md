@@ -4,12 +4,13 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+Queste sono alcuen informazioni su di me!
 
-### More Information
+### Informazioni di base
 
-A place to include any other types of information that you'd like to include about yourself.
+Attualmente sono uno studente, frequento l'ultimo anno del liceo scientifico delle scienze applicate quadriennali, all'**IISS Majorana** di Brindisi. Ho 16 anni. Adoro programmare, costruire. Sono un developer e un maker, un **ro**bot ma**ker**, un **Roker**!
 
-### Contact me
+### Contattami
 
-[email@domain.com](mailto:email@domain.com)
+[gabbiurlaro00@gmail.com](mailto:gabbiurlaro00@gmail.com)\\
+[@gabbiurlaro00](https://t.me/gabbiurlaro)

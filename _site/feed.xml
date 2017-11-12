@@ -3,22 +3,28 @@
 <generator uri="http://jekyllrb.com" version="3.6.2">Jekyll</generator>
 <link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" />
 <link href="http://localhost:4000/" rel="alternate" type="text/html" />
-<updated>2017-11-12T10:48:43+01:00</updated>
+<updated>2017-11-12T17:54:05+01:00</updated>
 <id>http://localhost:4000/</id>
-<title>Your Name</title>
-<subtitle>Web Developer from Somewhere</subtitle>
+<title>gabbiurlaro.github.io</title>
+<subtitle>Developer from Salento</subtitle>
 <entry>
-<title>You’re up and running!</title>
-<link href="http://localhost:4000/Hello-World/" rel="alternate" type="text/html" title="You're up and running!" />
-<published>2014-03-03T00:00:00+01:00</published>
-<updated>2014-03-03T00:00:00+01:00</updated>
-<id>http://localhost:4000/Hello-World</id>
-<content type="html" xml:base="http://localhost:4000/Hello-World/">&lt;p&gt;Next you can update your site name, avatar and other options using the _config.yml file in the root of your repository (shown below).&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;{{ site.baseurl }}/images/config.png&quot; alt=&quot;_config.yml&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;The easiest way to make your first post is to edit this one. Go into /_posts/ and update the Hello World markdown file. For more instructions head over to the &lt;a href=&quot;https://github.com/barryclark/jekyll-now&quot;&gt;Jekyll Now repository&lt;/a&gt; on GitHub.&lt;/p&gt;
+<title>Primo post sul sito</title>
+<link href="http://localhost:4000/Primo-post/" rel="alternate" type="text/html" title="Primo post sul sito" />
+<published>2017-11-12T00:00:00+01:00</published>
+<updated>2017-11-12T00:00:00+01:00</updated>
+<id>http://localhost:4000/Primo-post</id>
+<content type="html" xml:base="http://localhost:4000/Primo-post/">&lt;p&gt;Ciao, sono Gabriele Iurlaro, e questo è il mio blog. Da qualche anno mi occupo di sviluppo web, usando diversi linguaggi di programmazione. Il mio preferito è il &lt;strong&gt;python&lt;/strong&gt;. Oltre a sviluppare per il web, mi piace molto il mondo dei maker, di cui faccio parte. Inoltre, sono un &lt;strong&gt;Roker&lt;/strong&gt;(&lt;strong&gt;Ro&lt;/strong&gt;bot Ma&lt;strong&gt;ker&lt;/strong&gt;). A presto per il primo articolo sul blog!&lt;/p&gt;
 </content>
-<summary>Next you can update your site name, avatar and other options using the _config.yml file in the root of your repository (shown below).</summary>
+<summary>Ciao, sono Gabriele Iurlaro, e questo è il mio blog. Da qualche anno mi occupo di sviluppo web, usando diversi linguaggi di programmazione. Il mio preferito è il python. Oltre a sviluppare per il web, mi piace molto il mondo dei maker, di cui faccio parte. Inoltre, sono un Roker(Robot Maker). A presto per il primo articolo sul blog!</summary>
+</entry>
+<entry>
+<title>Implementiamo un blog con Jekyll</title>
+<link href="http://localhost:4000/Jekyll-prima-parte/" rel="alternate" type="text/html" title="Implementiamo un blog con Jekyll" />
+<published>2017-11-12T00:00:00+01:00</published>
+<updated>2017-11-12T00:00:00+01:00</updated>
+<id>http://localhost:4000/Jekyll-prima-parte</id>
+<content type="html" xml:base="http://localhost:4000/Jekyll-prima-parte/">
+</content>
+<summary></summary>
 </entry>
 </feed>
